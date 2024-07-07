@@ -1,2 +1,10 @@
-# Step 2: Add a simple line of code to print a confirmation message
-print("Dev container is correctly configured.")
+import asyncio
+from bleak import BleakScanner
+
+async def main():
+    devices = await BleakScanner.discover()
+    for device in devices:
+        print(device)
+
+
+asyncio.run(main())
